@@ -1,12 +1,10 @@
+import re 
 def addressVal(address):
-    dot = address.find(".")
-    at = address.find("@")
-    if (dot == -1):
-        print("Invalid")
-    elif (at == -1):
-        print("Invalid")
+    pattern = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+    if re.match(pattern, address):
+        print("Valid email")
     else:
-        print("Valid")
+        print("Invalid email")
 
 print("This program will decide if your input is a valid email address")
 while(True):
